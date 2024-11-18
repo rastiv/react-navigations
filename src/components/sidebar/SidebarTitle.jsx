@@ -5,16 +5,6 @@ import { useIsFirstRender } from "../../hooks/useIsFirstRender";
 const SidebarTitle = ({ open }) => {
   const isFirstRender = useIsFirstRender();
 
-  const INITIAL = {
-    opacity: isFirstRender ? 1 : 0,
-    y: isFirstRender ? 0 : 12,
-  };
-  const ANIMATE = {
-    opacity: 1,
-    y: 0,
-  };
-  const TRANSITION = { delay: 0.35 };
-
   return (
     <div className="mb-3 pb-3 border-b border-slate-300">
       <div className="flex items-center justify-between cursor-pointer rounded-md transition-colors hover:bg-slate-100">
@@ -23,9 +13,12 @@ const SidebarTitle = ({ open }) => {
           {open && (
             <motion.div
               layout
-              initial={INITIAL}
-              animate={ANIMATE}
-              transition={TRANSITION}
+              initial={{
+                opacity: isFirstRender ? 1 : 0,
+                y: isFirstRender ? 0 : 12,
+              }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35 }}
             >
               <span className="block text-xs font-semibold uppercase">
                 Raycho Ivanov
