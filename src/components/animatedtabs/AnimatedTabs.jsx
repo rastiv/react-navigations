@@ -13,7 +13,7 @@ const AnimatedTabs = () => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   return (
-    <motion.div layout className="flex space-x-1">
+    <div className="flex space-x-1">
       {tabs.map((tab) => (
         <button
           key={tab.id}
@@ -33,7 +33,7 @@ const AnimatedTabs = () => {
           <span className="relative z-20">{tab.label}</span>
         </button>
       ))}
-    </motion.div>
+    </div>
   );
 };
 
