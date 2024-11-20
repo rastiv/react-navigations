@@ -42,19 +42,13 @@ function App() {
               onChangeAfter={setActiveTabAfter}
             />
             <hr className="my-3" />
-            <div className="flex justify-between gap-4 text-sm text-slate-500">
-              <div>
-                onChange:{" "}
-                <strong>
-                  {TABS.find((tab) => tab.id === activeTab)?.label}
-                </strong>
-              </div>
-              <div>
-                <strong>
-                  {TABS.find((tab) => tab.id === activeTabAfter)?.label}
-                </strong>{" "}
-                :onChangeAfter
-              </div>
+            <div className="grid grid-cols-[auto_1fr] gap-x-2 text-sm text-slate-500">
+              <span>onChange:</span>
+              <strong>{TABS.find((tab) => tab.id === activeTab)?.label}</strong>
+              <span>onChangeAfter:</span>
+              <strong>
+                {TABS.find((tab) => tab.id === activeTabAfter)?.label}
+              </strong>
             </div>
           </motion.div>
 
