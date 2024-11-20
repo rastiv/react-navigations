@@ -14,14 +14,14 @@ const ClippyTabs = ({
   tabs,
   initialTab = "",
   duration = 0.3,
-  onChange = null,
+  onChangeBefore = null,
   onChangeAfter = null,
 }) => {
   const [container, animate] = useAnimate();
 
   const handleChange = async (id) => {
-    if (onChange && typeof onChange === "function") {
-      onChange(id);
+    if (onChangeBefore && typeof onChangeBefore === "function") {
+      onChangeBefore(id);
     }
     const clipPath = getClipPath(id);
     await animate(container.current, { clipPath }, { duration });
@@ -48,7 +48,7 @@ const ClippyTabs = ({
           <li key={tab.id}>
             <button
               id={`clippytab-${tab.id}`}
-              className="flex h-8 items-center gap-2 rounded-full p-4 font-medium text-sm text-slate-500 bg-transparent"
+              className="flex h-8 items-center gap-2 rounded-full p-4 font-medium text-sm text-slate-500 hover:text-slate-600 transition focus:text-slate-600 outline-none"
               onClick={() => handleChange(tab.id)}
             >
               {tab.icon}

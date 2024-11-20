@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 import Sidebar from "./components/sidebar/Sidebar";
 import ShiftingMenu from "./components/shiftingmenu/ShiftingMenu";
 import ClippyTabs from "./components/clippytabs/ClippyTabs";
-import Hamburger from "./components/hamburger/Hamburger";
+import HamburgerButton from "./components/hamburgerbutton/HamburgerButton";
 import {
   FiHome,
   FiUsers,
   FiBarChart2,
   FiDollarSign,
-  FiSettings,
+  FiHeart,
 } from "react-icons/fi";
 
 const TABS = [
@@ -17,7 +17,7 @@ const TABS = [
   { id: "balance", label: "Balance", icon: <FiDollarSign /> },
   { id: "users", label: "Users", icon: <FiUsers /> },
   { id: "statistics", label: "Statistics", icon: <FiBarChart2 /> },
-  { id: "settings", label: "Settings", icon: <FiSettings /> },
+  { id: "your-wishlist", label: "Your Wishlist", icon: <FiHeart /> },
 ];
 
 function App() {
@@ -37,13 +37,13 @@ function App() {
             <ClippyTabs
               tabs={TABS}
               initialTab={activeTab}
-              duration="1.5"
-              onChange={setActiveTab}
+              duration="1.2"
+              onChangeBefore={setActiveTab}
               onChangeAfter={setActiveTabAfter}
             />
             <hr className="my-3" />
             <div className="grid grid-cols-[auto_1fr] gap-x-2 text-sm text-slate-500">
-              <span>onChange:</span>
+              <span>onChangeBefore:</span>
               <strong>{TABS.find((tab) => tab.id === activeTab)?.label}</strong>
               <span>onChangeAfter:</span>
               <strong>
@@ -53,7 +53,7 @@ function App() {
           </motion.div>
 
           <motion.div layout>
-            <Hamburger />
+            <HamburgerButton />
           </motion.div>
         </div>
       </motion.div>
