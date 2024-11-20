@@ -2,23 +2,41 @@ import { motion, MotionConfig } from "framer-motion";
 
 const sizes = {
   xs: [24, 12, 6, 1],
-  sm: [32, 16, 8, 1],
+  sm: [34, 17, 8.5, 2],
   md: [44, 22, 11, 2],
   lg: [56, 28, 14, 3],
 };
 
-const HamburgerButton = ({ open, setOpen, size = "md" }) => {
+const HamburgerButton = ({
+  open,
+  setOpen,
+  size = "md",
+  rounded = false,
+  background = "#e2e8f0",
+  color = "#334155",
+}) => {
+  const szs = sizes[size];
+
   return (
     <MotionConfig transition={{ duration: 0.5, ease: "easeInOut" }}>
       <motion.button
-        className={`relative size-[${sizes[size][0]}px] bg-red-200`}
+        style={{
+          position: "relative",
+          borderRadius: rounded ? `${szs[0] / 2}px` : "",
+          background,
+          height: `${szs[0]}px`,
+          width: `${szs[0]}px`,
+        }}
         onClick={() => setOpen((prev) => !prev)}
         initial={false}
         animate={open ? "open" : "closed"}
       >
         <motion.span
-          className={`absolute h-[${sizes[size][3]}px] w-[${sizes[size][1]}px] bg-slate-500`}
           style={{
+            position: "absolute",
+            background: color,
+            width: `${szs[1]}px`,
+            height: `${szs[3]}px`,
             left: "50%",
             top: "35%",
             x: "-50%",
@@ -36,8 +54,11 @@ const HamburgerButton = ({ open, setOpen, size = "md" }) => {
           }}
         ></motion.span>
         <motion.span
-          className={`absolute h-[${sizes[size][3]}px] w-[${sizes[size][1]}px] bg-slate-500`}
           style={{
+            position: "absolute",
+            background: color,
+            width: `${szs[1]}px`,
+            height: `${szs[3]}px`,
             left: "50%",
             top: "50%",
             x: "-50%",
@@ -53,8 +74,11 @@ const HamburgerButton = ({ open, setOpen, size = "md" }) => {
           }}
         ></motion.span>
         <motion.span
-          className={`absolute h-[${sizes[size][3]}px] w-[${sizes[size][2]}px] bg-slate-500`}
           style={{
+            position: "absolute",
+            background: color,
+            width: `${szs[2]}px`,
+            height: `${szs[3]}px`,
             right: "50%",
             bottom: "35%",
             x: "100%",

@@ -53,22 +53,33 @@ function App() {
             </div>
           </motion.div>
 
-          <motion.div layout className="flex gap-6 items-center">
+          <motion.div layout className="flex gap-10 items-center">
             <HamburgerButton
               open={openHamburger}
               setOpen={setOpenHamburger}
               size="lg"
+              rounded={true}
             />
-            <HamburgerButton open={openHamburger} setOpen={setOpenHamburger} />
+            <HamburgerButton
+              open={openHamburger}
+              setOpen={setOpenHamburger}
+              background="#fee2e2"
+              color="#b91c1c"
+            />
             <HamburgerButton
               open={openHamburger}
               setOpen={setOpenHamburger}
               size="sm"
+              rounded={true}
+              background="#dcfce7"
+              color="#15803d"
             />
             <HamburgerButton
               open={openHamburger}
               setOpen={setOpenHamburger}
               size="xs"
+              background="#dbeafe"
+              color="#1d4ed8"
             />
           </motion.div>
         </div>
