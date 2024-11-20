@@ -21,13 +21,14 @@ const TABS = [
 ];
 
 function App() {
-  const [open, setOpen] = useState(true);
+  const [openSidebar, setOpenSidebar] = useState(true);
   const [activeTab, setActiveTab] = useState("users");
   const [activeTabAfter, setActiveTabAfter] = useState("users");
+  const [openHamburger, setOpenHamburger] = useState(false);
 
   return (
     <div className="flex bg-neutral-50">
-      <Sidebar open={open} setOpen={setOpen} />
+      <Sidebar open={openSidebar} setOpen={setOpenSidebar} />
 
       <motion.div layout className="invisible h-[200vh] w-full md:visible">
         <ShiftingMenu />
@@ -52,8 +53,23 @@ function App() {
             </div>
           </motion.div>
 
-          <motion.div layout>
-            <HamburgerButton />
+          <motion.div layout className="flex gap-6 items-center">
+            <HamburgerButton
+              open={openHamburger}
+              setOpen={setOpenHamburger}
+              size="lg"
+            />
+            <HamburgerButton open={openHamburger} setOpen={setOpenHamburger} />
+            <HamburgerButton
+              open={openHamburger}
+              setOpen={setOpenHamburger}
+              size="sm"
+            />
+            <HamburgerButton
+              open={openHamburger}
+              setOpen={setOpenHamburger}
+              size="xs"
+            />
           </motion.div>
         </div>
       </motion.div>
