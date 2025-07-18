@@ -11,6 +11,7 @@ import {
   FiDollarSign,
   FiHeart,
 } from "react-icons/fi";
+import TextExamples from "./components/TextExamples";
 
 const TABS = [
   { id: "home", label: "Home", icon: <FiHome /> },
@@ -82,6 +83,8 @@ function App() {
               color="#1d4ed8"
             />
           </motion.div>
+
+          <TextExamples />
         </div>
       </motion.div>
     </div>
